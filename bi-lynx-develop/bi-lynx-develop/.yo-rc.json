@@ -1,0 +1,42 @@
+{
+  "generator-jhipster": {
+    "promptValues": {
+      "packageName": "com.trss.bi",
+      "nativeLanguage": "en"
+    },
+    "jhipsterVersion": "5.8.1",
+    "applicationType": "microservice",
+    "baseName": "biLynx",
+    "packageName": "com.trss.bi",
+    "packageFolder": "com/trss/bi",
+    "serverPort": "8083",
+    "authenticationType": "uaa",
+    "uaaBaseName": "biAuth",
+    "cacheProvider": "hazelcast",
+    "enableHibernateCache": false,
+    "websocket": false,
+    "databaseType": "mongodb",
+    "devDatabaseType": "mongodb",
+    "prodDatabaseType": "mongodb",
+    "searchEngine": false,
+    "messageBroker": false,
+    "serviceDiscoveryType": "eureka",
+    "buildTool": "maven",
+    "enableSwaggerCodegen": false,
+    "jwtSecretKey": "OThmMzY2ZDRmNWFmZjQ2OTA2MDZmOWJjZWM5OTY2YzJiOTVkNjk4Y2ExM2ZlZDUxM2E4ZGMxODUxNTA0MTVjMGFkMzQzM2UzNzRmMDY5ZmJkZmU1MTUyNDBkZTg3ZmExZGRmMDM5YThkM2M4NDgyMWM1ODNhMDA1YjI2YWE0OWI=",
+    "testFrameworks": [],
+    "jhiPrefix": "jhi",
+    "entitySuffix": "",
+    "dtoSuffix": "DTO",
+    "otherModules": [],
+    "enableTranslation": true,
+    "clientPackageManager": "npm",
+    "nativeLanguage": "en",
+    "languages": [
+      "en",
+      "es"
+    ],
+    "skipClient": true,
+    "skipUserManagement": true
+  }
+}
