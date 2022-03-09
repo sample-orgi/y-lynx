@@ -1,4 +1,5 @@
-FROM harbor.trssllc.com/trss-base-image/trss-ubuntu-20.04-java8:stable
+#FROM harbor.trssllc.com/trss-base-image/trss-ubuntu-20.04-java8:stable
+FROM openjdk:8
 
 ENV SPRING_OUTPUT_ANSI_ENABLED=ALWAYS \
     JHIPSTER_SLEEP=0 \
