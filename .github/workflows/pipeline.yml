@@ -1,40 +1,28 @@
-name: Github Actions Pipeline
+# .github/workflows/docker-build.yml
+name: Build Docker Image
 
-on: [push]
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
 
 jobs:
   build:
-    # runs-on: [ self-hosted ]
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v2
+    - name: Checkout repository
+      uses: actions/checkout@v3
 
-      - name: Setup JDK 8
-        uses: actions/setup-java@v2
-        with:
-          distribution: "adopt"
-          java-version: "8"
+    - name: Set up Docker Buildx
+      uses: docker/setup-buildx-action@v3
 
-      - name: Setup Git
-        run: |
-          git config --global user.email "{{ github.actor }}@users.noreply.github.com"
-          git config --global user.name "{{ github.actor }}"
+    - name: Build Docker image
+      run: |
+        docker build -t my-image-name:latest .
 
-      - name: Update POM version
-        run: |
-          mvn versions:set -DnewVersion={{ github.ref }}-SNAPSHOT
-          mvn versions:commit
-
-      - name: Maven Build
-        run: mvn clean install -DskipTests=true
-
-      - name: Maven Package
-        run: mvn clean package -DskipTests=true
-
-      - name: Copy packages to Docker directory
-        run: cp -rf ./target/*.war .src/main/docker/
-
-      - name: Build Docker Image
         
   
