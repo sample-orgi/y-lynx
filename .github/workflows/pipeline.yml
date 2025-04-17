@@ -36,12 +36,5 @@ jobs:
         run: cp -rf ./target/*.war .src/main/docker/
 
       - name: Build Docker Image
-        env:
-          HARBOR_SERVER: { { secrets.HARBOR_SERVER } }
-          HARBOR_USERNAME: { { secrets.HARBOR_USERNAME } }
-          HARBOR_PASSWORD: { { secrets.HARBOR_PASSWORD } }
-        run: |
-          echo "{{ HARBOR_PASSWORD }}" | docker login --username="{{ HARBOR_USERNAME }}" --password-stdin
-          docker build -t {{ github.repository }}:{{ github.ref }} .src/main/docker/
-          docker tag {{ github.repository }}:{{ github.ref }} {{ HARBOR_SERVER }}/{{ github.repository }}:{{ github.ref }}:latest
-          docker push {{ HARBOR_SERVER }}/{{ github.repository }}:{{ github.ref }}:latest
+        
+  
